@@ -1,0 +1,8 @@
+.wrapper-video
+  video#video.screen(src='assets/videos/gone.mp4' poster='assets/img/poster.png')
+  .controls
+    button#play.btn play
+    button#stop.btn stop
+      
+    input#progress.progress(type='range' min='0' max='100' step='0.1' value='0')
+    span#timestamp.timestamp 00:00

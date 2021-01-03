@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        style
+            include ../../node_modules/@coreui/coreui/dist/css/coreui.css
+            include ../../public/assets/css/form.css
+            
+    body
+        include header.pug
+        h2(class="text-center") ADD FRAME
+        form(method="POST" action="/")
+            .container
+                .form-row
+                    .col-12
+                        label(for='Nome') Nome
+                        input.form-control(name="Nome" type='text' required='')
+                    .col-12
+                        label(for='validationDefault02') Dominio
+                        input#validationDefault02.form-control(name="Dominio" type='text' required='')
+                    .col-12
+                        label(for='validationDefault01') Posterframe
+                        input#validationDefault03.form-control(name="Posterframe" type='text' required='')
+                    .col-12
+                        label(for='validationDefault01') Src
+                        input#validationDefault03.form-control(name="Src" type='text' required='')
+                button.btn.btn-primary(type='submit') Submit form
+

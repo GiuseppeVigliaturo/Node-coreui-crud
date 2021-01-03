@@ -1,0 +1,25 @@
+table(class="table table-responsive-sm")
+    thead
+        tr
+            th(class="bg-success" scope="col") id
+            th(class="bg-success" scope="col") Nome
+            th(class="bg-success" scope="col") Dominio
+            th(class="bg-success" scope="col") Poster
+            th(class="bg-success" scope="col") Src
+            th(class="bg-success" scope="col") Action
+    tbody
+        each val in values
+            tr
+                th(scope="row")= val.id
+                td= val.Nome
+                td= val.Dominio
+                td= val.Posterframe
+                td= val.Src
+                td 
+                    - var url = "/"+ val.id + "/edit";
+                    a(href= url class="btn btn-info") Update
+                    form(method='post' action='/'+val.id style='display: inline')
+                        input(type='hidden' name='_method' value='DELETE')
+                        button.btn.btn-danger(title='DELETE')
+                                i(class='c-icon c-icon-2xl cil-trash')
+                    a(href= "/"+ val.id + "/stats" class="btn btn-info") Stats

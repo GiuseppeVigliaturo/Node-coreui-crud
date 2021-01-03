@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+include partials/head.pug
+        
+body
+include partials/header.pug
+  
+.center(class="text-center")
+    //-modal
+    button(type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal")
+      Launch demo modal
+
+<!-- Modal -->
+div(class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
+  div(class="modal-dialog" role="document")
+    div(class="modal-content justify-content-center")
+      div(class="modal-header")
+        div(class="modal-title" id="exampleModalLabel")
+          p(class="text-center margin") INSERISCI IL TUO NOME 
+        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+        span(aria-hidden="true") &times;
+      div(class="modal-body")
+
+        div(class="input-group")
+            input(type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Username")
+
+        div(class="modal-footer")
+            button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
+            button(type="button" class="btn btn-primary") Save changes
+
+include partials/videoplayer.pug
+- var values = frames;
+
+p(class="clicca") clicca
+  include partials/table.pug
+
+
+      
+
+//-  CoreUI and necessary plugins
+script
+    include ../node_modules/@coreui/coreui/dist/js/coreui.bundle.min.js
+    include ../public/assets/js/videoplayer.js
+    //-include ../public/assets/js/test.js
+

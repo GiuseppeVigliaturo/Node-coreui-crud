@@ -1,0 +1,53 @@
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Document
+        style
+            include ../node_modules/@coreui/coreui/dist/css/coreui.css
+            include ../public/assets/css/form.css
+            
+    body
+    
+    //- script(type='text/javascript').
+    //-     var x = !{dataFrames}
+    //-     console.log(x.Nome,x.Dominio)
+    script.
+        function updateList(btn) {
+        const method = document.getElementById('method');
+        const form = document.getElementById('frame');
+        btn.value === 'DELETE' ? method.value = 'DELETE': method.value = 'PATCH';
+        form.submit();
+        }
+
+    -var x = dataFrames
+    each val in x  
+        -var url="/"+val.id
+        p= url
+                
+        form#frame(method='post' action=url name='iframe')
+            
+            .container
+                .form-row
+                    .col-10
+                        input.form-control(name="id" type='hidden' required='' value=`${val.id}`)
+                    .col-12.col-md-10.offset-md-2
+                        label(for='validationDefault01') Nome
+                        input#validationDefault01.form-control(name="Nome" type='text' required='' value=`${val.Nome}`)
+                    .col-12.col-md-10.offset-md-2
+                        label(for='validationDefault02') Dominio
+                        input#validationDefault02.form-control(name="Dominio" type='text' required='' value=`${val.Dominio}`)
+                    .col-12.col-md-10.offset-md-2
+                        label(for='validationDefault01') Posterframe
+                        input#validationDefault03.form-control(name="Posterframe" type='text' required='' value=`${val.Posterframe}`)
+                    .col-10.col-md-10.offset-md-2
+                        label(for='validationDefault02') Src
+                        input#validationDefault04.form-control(name="Src" type='text' required='' value=`${val.Src}`)
+                    .col-md-5.p-2.text-start
+                    button.btn.btn-success.p-2(value='UPDATE' onclick='updateList(this); return false' title='UPDATE LIST')
+                        | UPDATE
+                    input#method(type='hidden' name='_method' value='DELETE')
+                    button.btn.btn-danger.p-2(value='DELETE' onclick='updateList(this); return false' title='DELETE LIST')
+                        | DELETE
+                                    
+    
